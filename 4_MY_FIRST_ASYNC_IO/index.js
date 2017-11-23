@@ -3,7 +3,7 @@ const fs = require('fs')
 const file = process.argv[2]
 
 fs.readFile(file, 'utf-8', (err, data) => {
-  if (err) return
+  if (err) return console.log(err)
 
   console.log(data.split('\n').length - 1)
 })

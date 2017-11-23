@@ -4,11 +4,9 @@ const path = process.argv[2]
 const extension = process.argv[3]
 
 fs.readdir(path, 'utf-8', (err, files) => {
-  if (err) return
+  if (err) console.error(err)
 
-  const arr = files.filter(file => file.includes(`.${extension}`))
-
-  for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i])
-  }
+  files
+    .filter(file => file.includes(`.${extension}`))
+    .map(file => console.log(file))
 })
