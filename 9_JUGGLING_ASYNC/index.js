@@ -6,11 +6,11 @@ const responses = []
 
 urls.map((url, index) => {
   http
-    .get(process.argv[2 + index], res => {
+    .get(url, res => {
       res.pipe(bl((err, data) => {
         if (err) return console.error(err)
 
-        responses[index] = data.toString()
+        responses.push(data.toString())
 
         if (responses.length === 3) printResponses(responses)
       }))
