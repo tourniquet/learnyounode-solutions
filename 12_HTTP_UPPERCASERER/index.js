@@ -6,14 +6,14 @@ const server = http.createServer((req, res) => {
   let body = ''
 
   req
-		.setEncoding('utf-8')
+  .setEncoding('utf-8')
     .on('data', chunk => {
- 			if (req.method === 'POST') {    
-				body += chunk.toString().toUpperCase()
+      if (req.method === 'POST') {
+        body += chunk.toString().toUpperCase()
       }
     })
     .on('end', () => {
-				res.end(body)
+      res.end(body)
     })
 })
 
